@@ -6,11 +6,13 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/igordevopslabs/crud-go/src/configuration/logger"
 	"github.com/igordevopslabs/crud-go/src/controller/routes"
 	"github.com/joho/godotenv"
 )
 
 func main() {
+	logger.Info("app iniciando")
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error ao carregar o arquivo .env")
@@ -25,5 +27,4 @@ func main() {
 	if err := router.Run(":5000"); err != nil {
 		log.Fatal(err)
 	}
-
 }
